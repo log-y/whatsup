@@ -28,7 +28,7 @@ message Empty {}
 
 message ChatMessage {
     string user = 1;
-    string body = 1;
+    string body = 2;
 }
 
 // TODO: Create a ChatMessages message that contains a repeated list of
@@ -80,7 +80,7 @@ service WhatsUp {
     // User fetches all messages addressed to themselves in batches. Batch size is
     // defined by the server that implements this RPC, clients cannot control it.
     // TODO: add an RPC message called Fetch that takes Empty and returns ChatMessages (note the plural!)
-    rpc Fetch(Empty) returns (ChatMessages)
+    rpc Fetch(Empty) returns (ChatMessages);
 
     // User fetches a list of currently active users. 
     rpc List(Empty) returns (UserList);
